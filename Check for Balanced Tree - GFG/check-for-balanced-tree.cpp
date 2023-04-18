@@ -115,7 +115,7 @@ class Solution{
         pair<bool,int>left = solve(root->left) ;
         pair<bool,int>right = solve(root->right) ;
         
-        bool difference= ( abs ( left.second - right.second ) )<=1 ;
+        bool difference= abs ( left.second - right.second ) <=1 ;
         
         pair<bool,int> ans;
         
