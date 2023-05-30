@@ -91,37 +91,38 @@ struct Node
     }
 }; */
 
-
-
 class Solution {
-  private:
+  public:
   
-    pair<int, int> diameterFast(Node*root){
-        // pair<int,int> p ;
+    pair<int, int> diameterFast(Node* node ){
         
-        if(root==NULL){
-            pair<int,int>p = make_pair(0,0) ;
-            return  p ;
+        if(node==NULL){
+           pair<int, int> p = make_pair(0,0) ;
+            return p ;
         }
-        pair<int , int> left=diameterFast(root->left) ;
-        pair<int , int> right=diameterFast(root->right) ;
         
-        int op1= left.first ;
-        int op2= right.first ;
-        int op3= left.second+right.second+1; 
+        pair<int , int> left=diameterFast(node->left) ;
+        pair<int , int> right=diameterFast(node->right) ;
         
-        pair<int ,int> ans ;
-        ans.first=max( op1 , max(op2,op3)) ;
+        int op1 = left.first ;
+        int op2 = right.first ;
+        int op3 = left.second + right.second + 1 ; 
+        
+        pair<int , int> ans ;
+        ans.first=max(op1,max(op2,op3)) ;
         ans.second=max(left.second , right.second)+1 ;
         
         return ans ;
-    }
-  public:
-    
-    int diameter(Node* root) {
         
-        pair<int , int> ans =diameterFast(root) ;
-        return ans.first ;
+    }  
+    
+    // Function to return the diameter of a Binary Tree.
+    int diameter(Node* root) {
+        // Your code here
+                
+        pair<int , int> a = diameterFast(root) ;
+        
+        return  a.first ;
     }
 };
 
