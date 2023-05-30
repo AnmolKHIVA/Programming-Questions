@@ -96,20 +96,40 @@ struct Node
     }
 };
 */
+
+// METHOD 2 same as finding the diameter of the binary tree
+
 class Solution{
     public:
+    
+    pair<int, int> diameterFast(Node* node ){
+        
+        if(node==NULL){
+           pair<int, int> p = make_pair(0,0) ;
+            return p ;
+        }
+        
+        pair<int , int> left=diameterFast(node->left) ;
+        pair<int , int> right=diameterFast(node->right) ;
+        
+        int op1 = left.first ;
+        int op2 = right.first ;
+        int op3 = left.second + right.second + 1 ; 
+        
+        pair<int , int> ans ;
+        ans.first=max(op1,max(op2,op3)) ;
+        ans.second=max(left.second , right.second)+1 ;
+        
+        return ans ;
+        
+    }
     //Function to find the height of a binary tree.
     int height(struct Node* node){
         // code here 
-        if(node==NULL){
-            return 0 ;
-        }
-
-        int leftHeight=height(node->left) ;
-        int rightHeight=height(node->right) ;
         
-        return max(leftHeight,rightHeight)+1 ;
+        pair<int , int> a = diameterFast(node) ;
         
+        return a.second ;
     }
 };
 
