@@ -58,10 +58,10 @@ class Solution
        if(leftAns==NULL && rightAns==NULL){
            return NULL ;
        }
-       if(leftAns!=NULL && rightAns==NULL){
+       else if(leftAns!=NULL && rightAns==NULL){
            return leftAns ;
        }
-       if(leftAns==NULL && rightAns!=NULL){
+       else if(leftAns==NULL && rightAns!=NULL){
            return rightAns ;
        }
        else{
