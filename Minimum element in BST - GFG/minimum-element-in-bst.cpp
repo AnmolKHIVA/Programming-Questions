@@ -112,6 +112,8 @@ Node* newNode(int val) {
 }
 */
 
+// RECURSIVE METHOD
+
 int minValue(Node* root) {
     // Code here
     if(root==NULL){
