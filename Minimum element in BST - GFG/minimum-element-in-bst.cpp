@@ -112,16 +112,14 @@ Node* newNode(int val) {
 }
 */
 
-// RECURSIVE METHOD
+// ITERATIVE METHOD
 
 int minValue(Node* root) {
     // Code here
-    if(root==NULL){
-        return -1 ;
+    int min=-1 ;
+    while(root!=NULL){
+        min=root->data;
+        root=root->left ;
     }
-    
-    if(root->left==NULL){
-        return root->data ;
-    }    
-    minValue(root->left) ;
+    return min ;
 }
