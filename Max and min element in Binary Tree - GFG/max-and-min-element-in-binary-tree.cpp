@@ -111,38 +111,32 @@ struct Node
 class Solution
 {
 public:
+    int maxi=INT_MIN ;
+    int mini=INT_MAX ;
+    
     int findMax(Node *root)
     {
         //code here
-        int lmaxi=root->data ;
-        int rmaxi=root->data ;
-        int ans ;
-        if(root->right){
-            ans=findMax(root->right) ;
-            lmaxi=max(lmaxi , ans) ;
+        if(root==NULL){
+            return 0 ;
         }
-        if(root->left){
-            ans=findMax(root->left) ;
-            rmaxi=max(rmaxi , ans) ;
-        }
-        return max(lmaxi, rmaxi) ;
+        maxi=max(maxi,root->data) ;
+        findMax(root->left) ;
+        findMax(root->right) ;
+        
+        return maxi ;
     }
-    
     int findMin(Node *root)
     {
         //code here
-        int lmin=root->data ;
-        int rmin=root->data ;
-        int ans ;
-        if(root->left){
-            ans = findMin(root->left) ;
-            lmin=min(lmin,ans) ;
+        if(root==NULL){
+            return 0 ;
         }
-        if(root->right){
-            ans = findMin(root->right) ;
-            rmin=min(rmin,ans) ;
-        }
-        return min(lmin,rmin) ;
+        mini=min(mini,root->data) ;
+        findMin(root->left) ;
+        findMin(root->right) ;
+        
+        return mini ;
     }
 };
 
