@@ -41,28 +41,17 @@ class Solution
     Node* lca(Node* root ,int n1 ,int n2 )
     {
        //Your code here 
-       if(root==NULL){
-           return NULL ;
-       }
-       
-       if(root->data==n1){
+       if(root==NULL || root->data==n1 || root->data==n2){
            return root ;
        }
-       if(root->data==n2){
-           return root ;
-       }
+       Node* left = lca(root->left ,n1 , n2) ;
+       Node* right = lca(root->right , n1, n2) ;
        
-       Node* leftAns= lca(root->left , n1 , n2) ;
-       Node* rightAns= lca(root->right , n1 , n2) ;
-       
-       if(leftAns==NULL && rightAns==NULL){
-           return NULL ;
+       if(left==NULL){
+           return right ;
        }
-       else if(leftAns!=NULL && rightAns==NULL){
-           return leftAns ;
-       }
-       else if(leftAns==NULL && rightAns!=NULL){
-           return rightAns ;
+       else if(right==NULL){
+           return left ;
        }
        else{
            return root ;
