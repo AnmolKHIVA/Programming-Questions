@@ -33,9 +33,9 @@ class Solution{
                 return LCA(root->left,n1,n2) ;
             }
             
-            // if((root->data>n1 && root->data<n2) || (root->data<n1 && root->data>n2)){
-            //     return root ;
-            // }
+            if((root->data>n1 && root->data<n2) || (root->data<n1 && root->data>n2)){
+                return root ;
+            }
 
             return root ;
         }
