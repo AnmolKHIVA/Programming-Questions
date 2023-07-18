@@ -40,7 +40,7 @@ class Solution
     int knapSack(int W, int wt[], int val[], int n ) 
     { 
        // Your code here
-       vector<vector<int>> dp( n , vector<int>( W+1 , -1 ) ) ;
+       vector<vector<int>> dp( n+1 , vector<int>( W+1 , -1 ) ) ;
        int ans = topDown(W , wt , val , n-1 , dp ) ;
        return ans ; 
     }
